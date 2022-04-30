@@ -9,33 +9,39 @@ while (continuar2 == 'S'){
     let continuar = 'S'
     while(continuar = 'S'){                                                                                                        
         
-        let valores = { energia:50, tecnica:50, confianca:50, dias: 1, fases:1, horas:12}                                           
+        let valores = {
+        energia:50,
+        tecnica:50, 
+        confianca:50, 
+        dias: 1, 
+        fases:1, 
+        horas:18
+        }                                           
         
         let listaPremios = []
         
-        function eventoZero() {
-        let computador = Math.floor(Math.random() * 3)
-        if (computador == 1){
-            console.log('ATENÇÃO! NEYMAR MACHUCOU NO TREINO!');
-            valores.confianca -= 150
         
-        }   
+        function horaMenos(){
+            valores.horas -= 6
         }
-    
+        
+        function horaMais(){
+            valores.horas += 6
+        }
+        
+        function fase() {
+            valores.fases ++;
+        }
+
         function dia() {
         valores.dias ++;
         console.log (`VAMOS PARA O ${valores.dias}º DIA.`);
         } 
         
-        function fase() {
-        valores.fases ++;
-        }
-        
         function final1 () {
         console.log('\nVOCÊ PERDEU! FICOU SEM ENERGIA.\nNÃO CONSEGUIMOS JOGAR MAIS.\nPERDEMOS!')
         return(true)
         }  
-        
         
         function final2 () {
         console.log('\nVOCÊ PERDEU! COMEMOROU DEMAIS E PERDEU A TÉCNICA!\nNÃO CONSEGUIMOS JOGAR MAIS\nPERDEMOS!')
@@ -46,142 +52,161 @@ while (continuar2 == 'S'){
         console.log('\nVOCÊ PERDEU! SE ESFORÇOU DEMAIS!\nACABOU SOFRENDO UMA LESÃO, ESTÁ FORA DA COPA!\nPERDEMOS!');
         return true;
         }
+        
+        function eventoZero() {
+        let computador = Math.floor(Math.random() * 3)
+        if (computador == 2){
+            console.log('ATENÇÃO! NEYMAR MACHUCOU NO TREINO!');
+            valores.confianca -= 150
+        
+        }   
+        }
 
+        // function campeao(){
+        //     this.energia = 100
+        //     this.confianca = 100
+        //     this.tecnica = 100
+        // }
+
+        function meuStatus(){
+            console.log(`
+                    Energia   : ${valores.energia}/100
+                    Tecnica   : ${valores.tecnica}/100
+                    Confiança : ${valores.confianca}/100`);
+        }
 
         function inicioGame(){
-        console.log('-----------------------------------');
-        console.log('<- PROJETO 3 - FICÇÃO INTERATIVA ->');
-        console.log('-----------------------------------');
-        console.log(' NEYMAR E A GRANDE COPA DO MUNDO! ');
-        console.log('-----------------------------------');
+        console.log('--------------------------------------------------------------');
+        console.log('<-            PROJETO 3 - FICÇÃO INTERATIVA                 ->');
+        console.log('--------------------------------------------------------------');
+        console.log('             NEYMAR E A GRANDE COPA DO MUNDO!                 ');
+        console.log('--------------------------------------------------------------');
 
 
-        console.log(`  HOJE, VOCÊ É O GRANDE JOGADOR DE 
-            FUTEBOL NEYMAR JR.
-        \n  SEU OBJETIVO É AJUDAR A SUA 
-        SELEÇÃO A GANHAR A COPA DO MUNDO!
-        -----------------------------------
-        \nO BRASIL ACABA DE PASSAR PELAS
-        QUARTAS DE FINAIS, FALTAM 2 JOGOS 
-        PARA SER CAMPEÕES DO MUNDO!`);}
+        console.log(`      HOJE, VOCÊ É O GRANDE JOGADOR DE FUTEBOL NEYMAR JR.
+SEU OBJETIVO É AJUDAR A SUA SELEÇÃO A GANHAR A COPA DO MUNDO!
+--------------------------------------------------------------
+     O BRASIL ACABA DE PASSAR PELAS QUARTAS DE FINAIS,
+       FALTAM 2 JOGOS PARA SER CAMPEÕES DO MUNDO!
+--------------------------------------------------------------`);}
         inicioGame()
 
         function primeiraFase(){
-        console.log(`\n   FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS JOGO`) 
+        console.log(`              FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS JOGO / ${valores.horas}:00HRS
 
-        console.log(`        QUARTAS DE FINAL\n  
-        ACABAMOS DE DERROTAR A BÉLGICA,
-        UMA VITÓRIA POR 3x0, E VOCÊ COMO
-        CAPITÃO, DEVE AUXILIAR O TÉCNICO,
-        NAS PROXIMAS DECISÕES.... 
-        -----------------------------------`);
+ACABAMOS DE DERROTAR A BÉLGICA, UMA VITÓRIA POR 3x0 (COM UM
+GOL E UMA ASSISTENCIA DE NEYMAR), E VOCÊ COMO CAPITÃO, DEVE 
+        AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES... 
+
+  :: Neste jogo Neymar ganhou uma premiação individual ::\n
+--------------------------------------------------------------\n
+                Atual Status do Personagem:`);
+
         let premio1 = ' - SELEÇÃO DA COPA DO MUNDO'
         listaPremios.push(premio1)
 
-        console.log(`
-        Energia   : ${valores.energia}/100
-        Tecnica   : ${valores.tecnica}/100
-        Confiança : ${valores.confianca}/100
+        meuStatus()
 
-        QUAL O PROXIMO PASSO DA 
-        SELEÇÃO BRASILEIRA DE FUTEBOL? 
+        console.log(`
+   QUAL O PROXIMO PASSO DA SELEÇÃO BRASILEIRA DE FUTEBOL? 
         
-        [A] DESCANSAR
-        [B] TREINAR\n`);
-        let primeiraEscolha1 = prompt('QUAL SUA ESCOLHA: ').toUpperCase()
+                       [A] DESCANSAR
+                       [B] TREINAR\n`);
+        let primeiraEscolha1 = prompt('                     QUAL SUA ESCOLHA: ').toUpperCase()
         while (primeiraEscolha1 != "A" && primeiraEscolha1 != "B") {
         console.log("\nDIGITE UMA OPÇÃO VÁLIDA:");
-        console.log ('\n[A] DESCANSAR \n[B] TREINAR\n');
-        primeiraEscolha1 = prompt('QUAL SUA ESCOLHA: ').toUpperCase();
+        console.log ('\n[A] DESCANSAR \n[B]  TREINAR\n');
+        primeiraEscolha1 = prompt('                     QUAL SUA ESCOLHA: ').toUpperCase();
         }
         if(primeiraEscolha1 == 'A'){
-            console.log('\nÓTIMA ESCOLHA!\nDEPOIS DE UMA GRANDE VITÓRIA A SELEÇÃO \nBRASILEIRA MERECE UM DESCANSO.');
+            console.log('\n         ÓTIMA ESCOLHA! DEPOIS DE UMA GRANDE VITÓRIA\n         A SELEÇÃO BRASILEIRA MERECE UM DESCANSO.');
             valores.energia += 10 ; valores.tecnica += 10 ; valores.confianca += 10
         } else if (primeiraEscolha1 == 'B'){
-            console.log(`\n<--------- TREINO ---------->
-            \n[A] TREINAR NA ACADEMIA\n[B] TREINAR COM BOLA\n`);
-            let primeiraEscolha2 = prompt('QUAL SUA ESCOLHA: ').toUpperCase()
+            console.log(`\n                   [A] TREINAR NA ACADEMIA\n                   [B] TREINAR COM BOLA\n`);
+            let primeiraEscolha2 = prompt('                     QUAL SUA ESCOLHA: ').toUpperCase()
             while (primeiraEscolha2 != "A" && primeiraEscolha2 != "B") {
-            console.log("\nDigite uma opção válida:");
+            console.log("\nDIGITE UMA OPÇÃO VÁLIDA:");
             console.log ('\n[A] TREINAR NA ACADEMIA \n[B] TREINAR COM BOLA`)\n');
             primeiraEscolha2 = prompt('QUAL SUA ESCOLHA: ').toUpperCase();
             }
             if (primeiraEscolha2 == 'A' ){
-            console.log('\nBOA ESCOLHA. \nA SELEÇÃO FARÁ UM TREINO REGENERATIVO.');
+            console.log('\n   BOA ESCOLHA! A SELEÇÃO FARÁ UM TREINO REGENERATIVO.');
             valores.energia -=10 ;  valores.tecnica += 10 ; valores.confianca += 10
             }else{
-            console.log('\nNÃO FOI UMA BOA ESCOLHA.\nA SELEÇÃO MERECIA UM DESCANÇO.');
+            console.log('\n   NÃO FOI UMA BOA ESCOLHA! A SELEÇÃO MERECIA UM DESCANÇO.');
             valores.energia -=20 ; valores.tecnica += 10 ; valores.confianca += 10
             }
         }
         }
         primeiraFase()
 
-        console.log('\n<- DIA 01 ENCERRADO - PRESS ENTER CONTINUE ->');
+        console.log('\n--------------------------------------------------------------');
+        console.log('\n<-       DIA 01 ENCERRADO - PRESS ENTER CONTINUE            ->');
         prompt()
         dia()
         fase()
+        horaMenos()
         console.clear();
     
         function segundaFase(){
-        console.log(`   FASE 0${valores.fases} / DIA 0${valores.dias} - PRÉ JOGO`)
-        console.log(`
-        SEMI-FINAL - HOJE A SELEÇÃO BRASILEIRA
-            IRÁ ENFRENTAR A ARGENTINA! 
-        --------------------------------------
+        console.log('\n--------------------------------------------------------------');
+        console.log(`\n            FASE 0${valores.fases} / DIA 0${valores.dias} - PRÉ JOGO / ${valores.horas}:00hrs
 
-        Energia   : ${valores.energia}/100
-        Tecnica   : ${valores.tecnica}/100
-        Confiança : ${valores.confianca}/100
+                SEMI-FINAL - DIA DE DECISÃO
+    HOJE A SELEÇÃO BRASILEIRA IRÁ ENFRENTAR A ARGENTINA! 
+UM SUPER CLÁSSICO SUL-AMERICANO NAS SEMIS DO MUNDIAL. E VOCÊ
+COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES:\n 
+--------------------------------------------------------------\n
+                Atual Status do Personagem:`)
         
-            QUAL O PROXIMO PASSO DA 
-            SELEÇÃO ANTES DO JOGO?
+        meuStatus()
+        
+        console.log(`
+  QUAL O PROXIMO PASSO DA SELEÇÃO BRASILEIRA ANTES DO JOGO?
 
-        [A] TREINAR 
-        [B] DIRETO PRO JOGO\n`);
-        let segundaEscolha1 = prompt().toUpperCase()
+                    [A] TREINAR 
+                    [B] DIRETO PRO JOGO\n`);
+        let segundaEscolha1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         while (segundaEscolha1 != "A" && segundaEscolha1 != "B") {
         console.log("\nDIGITE UMA OPÇÃO VÁLIDA:");
-        console.log ('\n[A] TREINAR \n[B] DIRETO PRO JOGO`)\n');
-        segundaEscolha1 = prompt().toUpperCase(); 
+        console.log ('\n[A] TREINAR \n[B] DIRETO PRO JOGO\n');
+        segundaEscolha1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase(); 
         }
         if (segundaEscolha1 == 'A'){
-        console.log(`
-        <--------- TREINO ---------->
-        [A] TREINAR NO CAMPO
-        [B] TREINAR LEVE NA PISCINA`); 
-            let segundaEscolha2 = prompt().toUpperCase()
+        console.log(`\n
+                    [A] TREINO NO CAMPO
+                    [B] TREINO LEVE\n`); 
+            let segundaEscolha2 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
             while (segundaEscolha2 != "A" && segundaEscolha2 != "B") {
             console.log("\nDIGITE UMA OPÇÃO VÁLIDA:");
             console.log ('\n[A] TREINAR NA ACADEMIA \n[B] TREINAR NA PISCINA`)\n');
-            segundaEscolha2 = prompt().toUpperCase();
+            segundaEscolha2 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase();
             }
             if(segundaEscolha2 = 'A' && valores.energia <=31){
-            console.log('NÃO FOI UMA BOA ESCOLHA, JÁ TREINAMOS ONTEM!');
+            console.log('\n      NÃO FOI UMA BOA ESCOLHA, JÁ TREINAMOS ONTEM!');
             valores.energia -= 31 ;  valores.tecnica += 10 ; 
             }else if (segundaEscolha2 = 'A'){
-            console.log('BOA ESCOLHA. VAMOS FAZER UM TREINO MUSCULAR E ATIVIDADE COM BOLA.');
+            console.log('\nBOA ESCOLHA. VAMOS FAZER UM TREINO MUSCULAR E ATIVIDADE COM BOLA.');
             valores.tecnica += 10 ; 
             }else if (segundaEscolha2 = 'B'){
-            console.log('ÓTIMA ESCOLHA. VAMOS FAZER UM TREINO LEVE ANTES DO JOGO.');
+            console.log('\nÓTIMA ESCOLHA. VAMOS FAZER UM TREINO LEVE ANTES DO JOGO.');
             valores.tecnica += 10 ; 
             }
         }else if (segundaEscolha1 = 'B'){
         console.log(`
-        <-------------- VAMOS PRO JOGO ---------------->
         [A] FAZER AQUECIMENTO/ALONGAMENTO.
-        [B] FAZER AQUECIMMENTO/ALONGAMENTO E PRÉ-ELEÇÃO.`);
-            let segundaEscolha3 = prompt().toUpperCase()
+        [B] FAZER AQUECIMMENTO/ALONGAMENTO E PRÉ-ELEÇÃO.\n`);
+            let segundaEscolha3 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
             while (segundaEscolha3 != "A" && segundaEscolha3 != "B") {
-            console.log("\nDigite uma opção válida:");
+            console.log("\nDIGITE UMA OPÇÃO VÁLIDA:");
             console.log ('\n[A] FAZER AQUECIMENTO/ALONGAMENTO \n[B] FAZER AQUECIMMENTO/ALONGAMENTO E PRÉ-ELEÇÃO.`)\n');
-            segundaEscolha3 = prompt().toUpperCase()
+            segundaEscolha3 = prompt('                     QUAL SUA ESCOLHA: ').toUpperCase()
             }
             if (segundaEscolha3 = 'A'){
-            console.log('BOA ESCOLHA. VAMOS AQUECER E IR PRO JOGO!');
+            console.log('\n          BOA ESCOLHA. VAMOS AQUECER E IR PRO JOGO!');
             valores.tecnica += 10 ; 
             }else{
-            console.log('ÓTIMA ESCOLHA! DEPOIS DO AQUECIMENTO, UMA PRÉ-ELEÇÃO E VAMOS PRO JOGO!');
+            console.log('\nÓTIMA ESCOLHA! DEPOIS DO AQUECIMENTO, UMA PRÉ-ELEÇÃO E VAMOS PRO JOGO!');
             valores.tecnica += 10 ; 
             }
         }
@@ -193,57 +218,64 @@ while (continuar2 == 'S'){
         jogarNovaemente()
         break
         }
-      
-        console.log('PRECIONE ENTER PARA IR PARA A SEMI-FINAL.');
+        console.log('\n--------------------------------------------------------------');
+        console.log('\n<-        PRECIONE ENTER PARA IR PARA A SEMI-FINAL          ->');
         prompt()
+        console.clear();
         fase()
+        horaMais()
         
         function terceiraFase(){
-        console.log(`FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS JOGO
-        QUE JOGO NA SEMI-FINAL. CLASSIFICADOS!
-        DERROTAMOS A ARGENTINA NO SUPER CLÁSSICO. 
-            2x1 DE VIRADA! ESTAMOS NA FINAL!
-        E VOCÊ COMO CAPITÃO, DEVE AUXILIAR 
-        O TÉCNICO, NAS PROXIMAS DECISÕES...
-        QUAL O PROXIMO PASSO?`);
+        console.log('\n--------------------------------------------------------------');
+        console.log(`\n            FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS JOGO / ${valores.horas}:00hrs
+
+QUE JOGO NA SEMI-FINAL. CLASSIFICADOS! DERROTAMOS A ARGENTINA
+NO SUPER CLÁSSICO. 2x1 DE VIRADA! ESTAMOS NA FINAL! E VOCÊ
+COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES:
+
+  :: Neste jogo Neymar ganhou uma premiação individual ::
+--------------------------------------------------------------
+
+                Atual Status do Personagem:`);
+        
         let premio2 = ' - ARTILHEIRO DA COPA DO MUNDO'
         listaPremios.push(premio2)
         
-        console.log(`Dia       : ${valores.dias}/4
-        Energia   : ${valores.energia}/100
-        Tecnica   : ${valores.tecnica}/100
-        Confiança : ${valores.confianca}/100`);
+        meuStatus()
 
-        console.log('[A] DESCANSAR \n[B]TREINO LEVE \n[C]COMEMORAR CLASSIFICAÇÃO');
-        let terceiraEscolha1 = prompt().toUpperCase()
-        
+        console.log(`\nQUAL O PROXIMO PASSO DA SELEÇÃO BRASILEIRA?
+
+                   [A] DESCANSAR 
+                   [B] TREINO LEVE 
+                   [C] COMEMORAR CLASSIFICAÇÃO\n`);
+        let terceiraEscolha1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         while (terceiraEscolha1 != 'A' && terceiraEscolha1 != 'B' && terceiraEscolha1 != 'C'){
-        console.log('\nDigite uma opção válida:"');
-        console.log('[A] DESCANSAR \n[B]TREINO LEVE \n[C]COMEMORAR CLASSIFICAÇÃO');
-        terceiraEscolha1 = prompt().toUpperCase()
+        console.log('\nDIGITE UMA OPÇÃO VÁLIDA:"');
+        console.log('[A] DESCANSAR \n[B] TREINO LEVE \n[C] COMEMORAR CLASSIFICAÇÃO');
+        terceiraEscolha1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         }
         if (terceiraEscolha1 == 'A'){
-        console.log('\nÓTIMA ESCOLHA!\nDEPOIS DE UMA GRANDE VITÓRIA A SELEÇÃO BRASILEIRA MERECE UM DESCANSO.');
+        console.log('\nÓTIMA ESCOLHA! DEPOIS DE UMA GRANDE VITÓRIA A SELEÇÃO \n           BRASILEIRA MERECE UM DESCANSO.');
         valores.energia += 10; valores.tecnica += 10 ; valores.confianca += 10
         }
         
         else if(terceiraEscolha1 == 'B'){
-        console.log('\nBOA ESCOLHA!\n VAMOS FAZER UM TREINO REGENERATIVO.');
+        console.log('\n     BOA ESCOLHA! VAMOS FAZER UM TREINO REGENERATIVO.');
         valores.energia += 5; valores.tecnica += 10 ; valores.confianca += 10
         }
         
         else if(terceiraEscolha1 == 'C'){
-        console.log('[A] BEBER GATORADE E COMEMORAR NO VESTIÁRIO \n[B] BEBER ALCOOL ATÉ TARDE NO HOTEL COM OS JOGADORES');
-        let terceiraEscolha2 = prompt().toUpperCase()
+        console.log('\n   [A] BEBER GATORADE E COMEMORAR NO VESTIÁRIO \n   [B] BEBER ALCOOL ATÉ TARDE NO HOTEL COM OS JOGADORES\n');
+        let terceiraEscolha2 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         while(terceiraEscolha2 != 'A' && terceiraEscolha2 != 'B'){
-        console.log('\nDigite uma opção válida:"');
-        console.log('[A] BEBER GATORADE E COMEMORAR NO VESTIÁRIO \n[B] BEBER ALCOOL ATÉ TARDE NO HOTEL COM OS JOGADORES');
-        terceiraEscolha2 = prompt().toUpperCase()
+        console.log('\nDIGITE UMA OPÇÃO VÁLIDA:"');
+        console.log('[A] BEBER GATORADE E COMEMORAR NO VESTIÁRIO \n[B] BEBER ALCOOL ATÉ TARDE NO HOTEL COM OS JOGADORES\n');
+        terceiraEscolha2 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
             }if (terceiraEscolha2 == 'A'){
-            console.log('BOA ESCOLHA! NÃO EXAGERE, TEMOS A FINAL AMANHÃ.');
+            console.log('\n   BOA ESCOLHA! NÃO EXAGERE, TEMOS A FINAL AMANHÃ.');
         valores.energia -= 20; valores.tecnica += 0 ; valores.confianca += 10
             }else if (terceiraEscolha2 == 'B'){
-            console.log('PÉSSIMA ESCOLHA! COMO VAMOS JOGAR AMANHÃ BÊBADOS?');
+            console.log('\n   PÉSSIMA ESCOLHA! COMO VAMOS JOGAR AMANHÃ BÊBADOS?');
             valores.energia += 10; valores.tecnica -= 100 ; valores.confianca += 10
             }
         }
@@ -257,49 +289,53 @@ while (continuar2 == 'S'){
         }
         
 
-        console.log('<- DIA 02 ENCERRADO - PRESS ENTER CONTINUE ->');
+        console.log('\n--------------------------------------------------------------');
+        console.log('\n<-       DIA 02 ENCERRADO - PRESS ENTER CONTINUE            ->');
         prompt()
         dia()
         fase()
+        horaMenos()
         console.clear();
-        console.log('----------------------------------');
+    
 
         valores.energia += 20
         valores.confianca += 20
         valores.tecnica += 10
 
         function quartaFase(){
-        console.log(`FASE 0${valores.fases} / DIA 0${valores.dias} - PRÉ JOGO
-        CHEGAMOS A GRANDE FINAL !!
-        HOJE É O DIA DE SABER QUEM VAI
-        SER A SELEÇÃO CAMPÊA DO MUNDO.
+        console.log('\n--------------------------------------------------------------');
+        console.log(`\n            FASE 0${valores.fases} / DIA 0${valores.dias} - PRÉ JOGO / ${valores.horas}:00hrs
         
-        IREMOS ENFRENTAR A ATUAL VENCEDORA,
-        A SELEÇÃO FRANCESA DE FUTEBOL!
-        
-        E VOCE COMO CAPITÃO DA EQUIPE, DEVE
-        AJUDAR A SELECIONAR OS PROXIMOS PASSOS...
-        
-        PRECIONE ENTER PARA CONTINUAR:`)
-        prompt()
-        
-        console.log(`QUAL DEVE SER O PROXIMO PASSO?
-        Energia   : ${valores.energia}/100
-        Tecnica   : ${valores.tecnica}/100
-        Confiança : ${valores.confianca}/100`);
+CHEGAMOS A GRANDE FINAL!! HOJE É O DIA DE SABER QUEM VAI SER
+A SELEÇÃO CAMPÊA DO MUNDO. IREMOS ENFRENTAR A ATUAL VENCEDORA,
+A SELEÇÃO FRANCESA DE FUTEBOL! E VOCE COMO CAPITÃO DA EQUIPE,
+      DEVE AJUDAR A SELECIONAR OS PROXIMOS PASSOS:
+      
+   :: Neste jogo Neymar ganhou uma premiação individual ::
 
-        console.log('\n[A]TREINAMENTO LEVE  \n[B]TREINAMENTO PESADO');
-        let quartaEscolha1 = prompt().toUpperCase()
+--------------------------------------------------------------
+      
+                Atual Status do Personagem:`)
+       
+        meuStatus()
+        
+        console.log(`
+  QUAL O PROXIMO PASSO DA SELEÇÃO BRASILEIRA ANTES DO JOGO?
+
+                   [A]TREINAMENTO LEVE  
+                   [B]TREINAMENTO PESADO\n`);
+
+        let quartaEscolha1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         while(quartaEscolha1 != 'A' && quartaEscolha1 != 'B'){
-        console.log('Digite uma opção valida!');
+        console.log('DIGITE UMA OPÇÃO VÁLIDA:');
         console.log('[A]TREINAMENTO LEVE \n[B]TREINAMENTO PESADO');
-        quartaEscolha1 = prompt().toUpperCase()
+        quartaEscolha1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         }
         if (quartaEscolha1 == 'A'){
-        console.log('TREINAMENTO TRANQUILO, PARA IRMOS COM TUDO PRA ESSA FINAL!');
+        console.log('\nTREINAMENTO TRANQUILO, PARA IRMOS COM TUDO PRA ESSA FINAL!');
         valores.energia += 10; valores.tecnica += 10 ; valores.confianca += 10
         }else if(quartaEscolha1 == 'B'){
-        console.log('TREINAMENTO FORTE, PARA IRMOS COM TUDO PRA ESSA FINAL');
+        console.log('\nTREINAMENTO FORTE, PARA IRMOS COM TUDO PRA ESSA FINAL');
         valores.energia -= 10; valores.tecnica += 10 ; valores.confianca += 10
         eventoZero()
         }
@@ -312,117 +348,130 @@ while (continuar2 == 'S'){
         break
         }
 
-
-
-
         fase()
-        console.log('PRESS ENTER PARA IR PARA A FINAL!');
+        horaMais()
+        console.log('\n--------------------------------------------------------------');
+        console.log('\n<-         PRECIONE ENTER PARA IR PARA A FINAL              ->');
         prompt()
+        console.clear()
 
         function quintaFase(){
-        console.log(`FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS JOGO
-        É CAAAAAAAAAAAAAAMPEÃOOOOOOOOOOOO!!!!!!
-        A SELEÇÃO BRASILEIRA É CAMPEÃ DO MUNDO!
-        BRASIL 2 x 0 FRANÇA, COM GOL DE NEYMAR!
+            console.log('\n--------------------------------------------------------------');
+        console.log(`\n          FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS JOGO / ${valores.horas}:00hrs
 
-        O BRASIL É HEXA CAMPEÃO MUNDIAL!
-        MAS E AGORA? QUAL O PROXIMO PASSO?
+É CAAAAAAAAAAAAAAMPEÃOOOOOOOOOOOO!!!!!! A SELEÇÃO BRASILEIRA
+É CAMPEÃ DO MUNDO! BRASIL 2 x 0 FRANÇA, COM GOL DE NEYMAR!
+O BRASIL É HEXA CAMPEÃO MUNDIALE VOCE COMO CAPITÃO DA EQUIPE,
+     DEVE AJUDAR A SELECIONAR OS PROXIMOS PASSOS:
 
-        PRECIONE ENTER PARA CONTINUAR:`);
-        prompt()
+   :: Neste jogo Neymar ganhou uma premiação individual ::
+
+--------------------------------------------------------------
+
+               Atual Status do Personagem:\n`);
+    
+        meuStatus()
+
         let premio3 = ' - MELHOR JOGADOR DA COPA DO MUNDO'
         listaPremios.push(premio3)
 
-        console.log(`AONDE VAI SER A COMEMORAÇÃO DO TÍTULO?
+        console.log(`
+        AONDE VAI SER A COMEMORAÇÃO DO TÍTULO?
         
         [1]FESTA NO ESTADIO/HOTEL
-        [2]FESTA NO ESTADIO/RUAS DO CATHAR`);
-        let quintaPergunta1 = prompt()
+        [2]FESTA NO ESTADIO/RUAS DO CATHAR\n`);
+        let quintaPergunta1 = prompt(`                   QUAL SUA ESCOLHA: `)
         while(quintaPergunta1 != "1" && quintaPergunta1 != "2"){
-        console.log('Digite uma opção válida:');
+        console.log('\nDIGITE UMA OPÇÃO VÁLIDA:');
         console.log('[1]FESTA NO ESTADIO/HOTEL\n[2]FESTA NO ESTADIO/RUAS DO CATHAR');
-        quintaPergunta1 = prompt()
+        quintaPergunta1 = prompt('                   QUAL SUA ESCOLHA: ')
         }
         if (quintaPergunta1 == '1'){
         console.log('BOA ESCOLHA NEY! VAMOS COMEMORAR NO ESTÁDIO E DEPOIS FAZER UMA GRANDE FESTA NO HOTEL!');
         }else if (quintaPergunta1 == '2'){
-        console.log('[A]CARRO DOS BOMBEIROS NA COMEMORAÇÃO [B]TRIO ELÉTRICO NA COMEMORAÇÃO');
+        console.log(`
+        [A]CARRO DOS BOMBEIROS NA COMEMORAÇÃO 
+        [B]TRIO ELÉTRICO NA COMEMORAÇÃO\n`);
         let quintaPergunta2 = prompt().toUpperCase()
         while(quintaPergunta2 != 'A' && quintaPergunta2 != 'B'){
-        console.log('Digite uma opção válida:');
-        console.log('[A]CARRO DOS BOMBEIROS NA COMEMORAÇÃO [B]TRIO ELÉTRICO NA COMEMORAÇÃO');
+        console.log('\nDIGITE UMA OPÇÃO VÁLIDA:');
+        console.log('[A]CARRO DOS BOMBEIROS NA COMEMORAÇÃO \n[B]TRIO ELÉTRICO NA COMEMORAÇÃO');
         quintaPergunta2 = prompt().toUpperCase()
         }
             if(quintaPergunta2 == 'A'){
-            console.log('ÓTIMA ESCOLHA NEY! DEPOIS DO ESTÁDIO VAMOS SAIR NO CARRO DE BOMBEIRO PELAS RUAS DO CATHAR');
+            console.log('ÓTIMA ESCOLHA NEY! DEPOIS DO ESTÁDIO VAMOS SAIR NO \nCARRO DE BOMBEIRO PELAS RUAS DO CATHAR');
             }else if(quintaPergunta2 == 'B'){
-            console.log('ÓTIMA ESCOLHA NEY! DEPOIS DO ESTÁDIO VAMOS SAIR DE TRIO ELÉTRICO PELAS RUAS DO CATHAR');
+            console.log('ÓTIMA ESCOLHA NEY! DEPOIS DO ESTÁDIO VAMOS SAIR DE \nTRIO ELÉTRICO PELAS RUAS DO CATHAR');
             }
         }
 
-        console.log('QUE FESTA MARAVILHOSA FAZ A TORCIDA DO BRASIL! BRASIL HEXA CAMPEÃO DO MUNDO!\nVAI SER DIFÍCIL DORMIR NAS RUAS HOJE...');
+        console.log('\nQUE FESTA MARAVILHOSA FAZ A TORCIDA DO BRASIL! BRASIL HEXA CAMPEÃO DO MUNDO!\nVAI SER DIFÍCIL DORMIR NAS RUAS HOJE...');
         }
         quintaFase()
     
-
-        console.log('<- DIA 03 ENCERRADO - PRESS ENTER CONTINUE ->');
+        console.log('\n--------------------------------------------------------------');
+        console.log('\n<-        DIA 03 ENCERRADO - PRESS ENTER CONTINUE           ->');
         prompt()
         dia()
         fase()
+        horaMenos()
         console.clear();
 
         function sextaFase(){
-        console.log(`FASE 0${valores.fases} / DIA 0${valores.dias} - CÊRIMONIA DE PREMIAÇÃO
+        console.log('\n--------------------------------------------------------------')
+        console.log(`\n    FASE 0${valores.fases} / DIA 0${valores.dias} - CÊRIMONIA DE PREMIAÇÃO / ${valores.horas}:00hrs
         
-        SEJAM BEM VINDOS A GRANDE CÊRIMONIA DE PREMIAÇÃO!
-        HOJE VAMOS VER OS PRÊMIOS INDIVIDUAIS DE CADA ATLETA
+SEJAM BEM VINDOS A GRANDE CÊRIMONIA DE PREMIAÇÃO! HOJE VAMOS VER
+         OS PRÊMIOS INDIVIDUAIS DE CADA ATLETA
         
         NEYMAR VOCÊ GANHOU OS SEGUINTES PRÊMIOS:
         
-        PRECIONE ENTER PARA VISUALIZAR.`)
+           PRECIONE ENTER PARA VISUALIZAR.`)
 
         prompt()
 
-        for(let premios = 0 ; premios < listaPremios.length ; premios ++){
-        console.log(`${premios+1}º PRÊMIO - ${listaPremios[premios]}`);
+        for (let i = 0 ; i < listaPremios.length; i++){
+            console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
         }
         }
         sextaFase()
 
-
+        horaMais()
         fase()
 
+        console.log();
+        console.log('\n--------------------------------------------------------------');
+        console.log('\n<-            PRECIONE ENTER PARA CONTINUAR                ->');
+        console.clear();
 
         function setimaFase(){
-        console.log(`FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS CÊRIMONIA DE PREMIAÇÃO
+        console.log('\n--------------------------------------------------------------');    
+        console.log(`\n    FASE 0${valores.fases} / DIA 0${valores.dias} - PÓS CÊRIMONIA DE PREMIAÇÃO / ${valores.horas}:00hrs
+
         QUE FESTA MARAVILHOSA FEZ A TORCIDA DO BRASIL!
         AGORA É HORA DE DECIDIR O SEU DESTINO NEYMAR...
 
-        PRECIONE ENTER PARA CONTINUAR:`);
+             PRECIONE ENTER PARA CONTINUAR:`);
         prompt()
 
-        console.log(`QUAL DEVE SER O PROXIMO PASSO?
-        Dia       : ${valores.dias}/4
-        Energia   : ${valores.energia}/100
-        Tecnica   : ${valores.tecnica}/100
-        Confiança : ${valores.confianca}/100
         
-        [1] VOLTAR PRO BRASIL
-        [2] VOLTAR PRA FRANÇA`);
+       console.log(`
+              [1] VOLTAR PRO BRASIL
+              [2] VOLTAR PRA FRANÇA`);
 
-        let sextaPergunta1 = prompt().toUpperCase()
+        let sextaPergunta1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         while(sextaPergunta1 != "1" && sextaPergunta1 != "2"){
-        console.log('Digite uma opção válida:');
+        console.log('\nDIGITE UMA OPÇÃO VÁLIDA:');
         console.log('[1] VOLTAR PRO BRASIL \n[2] VOLTAR PRA FRANÇA');
-        sextaPergunta1 = prompt().toUpperCase()
+        sextaPergunta1 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         } 
         if (sextaPergunta1 == '1'){
-        console.log('<<-- DE VOLTA PRO BRASIL ->>\n[1]COMEMORAR COM A FAMILIA\n[2]COMEMORAR COM A FAMILIA E AMIGOS\n[3]FAZER GRANDE FESTA PADRÃO NEYMAR');
-        let sextaPergunta2 = prompt().toUpperCase()
+        console.log('\n[1]COMEMORAR COM A FAMILIA\n[2]COMEMORAR COM A FAMILIA E AMIGOS\n[3]FAZER GRANDE FESTA PADRÃO NEYMAR');
+        let sextaPergunta2 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         while(sextaPergunta2 != '1' && sextaPergunta2 != '2' && sextaPergunta2 != '3'){
-        console.log('Digite uma opção válida:');
-        console.log('[1]COMEMORAR COM A FAMILIA\n[2]COMEMORAR COM A FAMILIA E AMIGOS\n[3]FAZER GRANDE FESTA PADRÃO NEYMAR');
-        sextaPergunta2 = prompt().toUpperCase()
+        console.log('DIGITE UMA OPÇÃO VÁLIDA:');
+        console.log('           [1]COMEMORAR COM A FAMILIA\n           [2]COMEMORAR COM A FAMILIA E AMIGOS\n           [3]FAZER GRANDE FESTA PADRÃO NEYMAR');
+        sextaPergunta2 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
         }
             if (sextaPergunta2 == '1'){
             console.log('BOA ESCOLHA NEYMAR! VAMOS DESCANSAR E COMEMORAR COM A FAMÍLIA.\nPARABÉNS BRASIL! PARABÉNS NEYMAR!');
@@ -432,12 +481,12 @@ while (continuar2 == 'S'){
             console.log('ÓTIMA ESCOLHA NEYMAR! VAMOS FAZER UMA GRANDE FESTA EM SUA ILHA!\nPARABÉNS BRASIL! PARABÉNS NEYMAR!');
             }
         }else if(sextaPergunta1 == '2'){
-        console.log('<<-- DE VOLTA PRA FRANÇA ->>\n[1]FERIAS COM A FAMILIA \n[2] REEAPRESENTAR NO PARIS SAINT GERMAIN');
-        let sextaPergunta3 = prompt().toUpperCase()
-        while (sextaPergunta3 != '1' && sextaPergunta3 != '2'){
-        console.log('Digite uma opção válida:');
         console.log('[1]FERIAS COM A FAMILIA \n[2] REEAPRESENTAR NO PARIS SAINT GERMAIN');
-        sextaPergunta3 = prompt().toUpperCase
+        let sextaPergunta3 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase()
+        while (sextaPergunta3 != '1' && sextaPergunta3 != '2'){
+        console.log('DIGITE UMA OPÇÃO VÁLIDA:');
+        console.log('           [1]FERIAS COM A FAMILIA \n           [2] REEAPRESENTAR NO PARIS SAINT GERMAIN');
+        sextaPergunta3 = prompt('                   QUAL SUA ESCOLHA: ').toUpperCase
         }
             if (sextaPergunta3 == '1'){
             console.log('BOA ESCOLHA NEYMAR! DEPOIS DE GANHAR UMA COPA DO MUNDO, VOCÊ MERECE UM DESCANSO!\nPARABÉNS BRASIL! PARABÉNS NEYMAR! ');
@@ -447,8 +496,8 @@ while (continuar2 == 'S'){
         }
         }
         setimaFase()
-     
-        console.log('<- JOGO ENCERRADO - PRESS ENTER CONTINUE ->');
+        
+        console.log('\n<-        JOGO ENCERRADO - PRESS ENTER CONTINUE               ->');
         prompt()
         console.clear();
         
