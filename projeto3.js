@@ -16,10 +16,7 @@ while (continuar2 == 'S'){
         dias: 1, 
         fases:1, 
         horas:18
-        }                                           
-        
-        let listaPremios = []
-        
+        }                                               
         
         function horaMenos(){
             valores.horas -= 6
@@ -61,7 +58,7 @@ while (continuar2 == 'S'){
         
         }   
         }
-
+        
         // function campeao(){
         //     this.energia = 100
         //     this.confianca = 100
@@ -100,10 +97,7 @@ GOL E UMA ASSISTENCIA DE NEYMAR), E VOCÊ COMO CAPITÃO, DEVE
 
   :: Neste jogo Neymar ganhou uma premiação individual ::\n
 --------------------------------------------------------------\n
-                Atual Status do Personagem:`);
-
-        let premio1 = ' - SELEÇÃO DA COPA DO MUNDO'
-        listaPremios.push(premio1)
+                Atual Status do Personagem:\n`);
 
         meuStatus()
 
@@ -236,10 +230,7 @@ COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES:
   :: Neste jogo Neymar ganhou uma premiação individual ::
 --------------------------------------------------------------
 
-                Atual Status do Personagem:`);
-        
-        let premio2 = ' - ARTILHEIRO DA COPA DO MUNDO'
-        listaPremios.push(premio2)
+                Atual Status do Personagem:\n`);
         
         meuStatus()
 
@@ -372,9 +363,6 @@ O BRASIL É HEXA CAMPEÃO MUNDIALE VOCE COMO CAPITÃO DA EQUIPE,
     
         meuStatus()
 
-        let premio3 = ' - MELHOR JOGADOR DA COPA DO MUNDO'
-        listaPremios.push(premio3)
-
         console.log(`
         AONDE VAI SER A COMEMORAÇÃO DO TÍTULO?
         
@@ -427,14 +415,25 @@ SEJAM BEM VINDOS A GRANDE CÊRIMONIA DE PREMIAÇÃO! HOJE VAMOS VER
         NEYMAR VOCÊ GANHOU OS SEGUINTES PRÊMIOS:
         
            PRECIONE ENTER PARA VISUALIZAR.`)
-
-        prompt()
-
-        for (let i = 0 ; i < listaPremios.length; i++){
-            console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
-        }
+           prompt()
         }
         sextaFase()
+
+        let listaPremios = []
+
+        let premio1 = ' - SELEÇÃO DA COPA DO MUNDO'
+        listaPremios.push(premio1)
+        let premio2 = ' - ARTILHEIRO DA COPA DO MUNDO'
+        listaPremios.push(premio2)
+        let premio3 = ' - MELHOR JOGADOR DA COPA DO MUNDO'
+        listaPremios.push(premio3)
+        for (let i = 0 ; i < listaPremios.length; i++){
+        console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
+        }
+
+
+
+        prompt()
 
         horaMais()
         fase()
