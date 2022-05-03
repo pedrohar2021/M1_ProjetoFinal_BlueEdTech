@@ -3,7 +3,6 @@ const prompt = require('prompt-sync')();
 
 // PROJETO CONTÉM: VARIÁVEIS, IF/ELSEIF/ELSE, WHILE, FOR, ARRAY, OBJETO, FUNÇÃO.
     
-
     let valores = {
     energia:50,
     tecnica:50, 
@@ -12,23 +11,19 @@ const prompt = require('prompt-sync')();
     fases:1, 
     horas:18
     }
-
-
     
-    
-
     let listaPremios = []
     
     function horaMenos(){
-        valores.horas -= 6
+    valores.horas -= 6
     }
     
     function horaMais(){
-        valores.horas += 6
+    valores.horas += 6
     }
     
     function fase() {
-        valores.fases ++;
+    valores.fases ++;
     }
 
     function dia() {
@@ -37,17 +32,14 @@ const prompt = require('prompt-sync')();
     
     function final1 () {
     console.log('\nVOCÊ PERDEU! FICOU SEM ENERGIA.\nNÃO CONSEGUIMOS JOGAR MAIS.\nPERDEMOS!')
-    return(true)
     }  
     
     function final2 () {
     console.log('\nVOCÊ PERDEU! COMEMOROU DEMAIS E PERDEU A TÉCNICA!\nNÃO CONSEGUIMOS JOGAR MAIS\nPERDEMOS!')
-    return true;
     }
     
     function final3 () {
     console.log('\nVOCÊ PERDEU! SE ESFORÇOU DEMAIS!\nACABOU SOFRENDO UMA LESÃO, ESTÁ FORA DA COPA!\nPERDEMOS!');
-    return true;
     }
     
     function eventoZero() {
@@ -55,11 +47,7 @@ const prompt = require('prompt-sync')();
     if (computador == 2){
         console.log('ATENÇÃO! NEYMAR MACHUCOU NO TREINO!');
         valores.confianca -= 150
-    
     } 
-    
-    
-
     }
     
     function campeaoStatus(){
@@ -76,10 +64,10 @@ const prompt = require('prompt-sync')();
     }
 
     function meusPremios(){
-        for (let i = 0 ; i < listaPremios.length; i++){
-        console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
-        }
-        }
+    for (let i = 0 ; i < listaPremios.length; i++){
+    console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
+    }
+    }
 
     function inicioGame(){
     console.log('--------------------------------------------------------------');
@@ -441,6 +429,8 @@ while (continuar2 == 'S'){
 
         let valores = {energia:50, tecnica:50, confianca:50, dias: 1, fases:1, horas:18}
         let listaPremios = []
+
+        inicioGame()
 
         primeiraFase()
         let premio1 = ' - SELEÇÃO DA COPA DO MUNDO'
