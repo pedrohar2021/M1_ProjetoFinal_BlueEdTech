@@ -12,7 +12,6 @@ const prompt = require('prompt-sync')();
     horas:18
     }
     
-    let listaPremios = []
     
     function horaMenos(){
     valores.horas -= 6
@@ -63,11 +62,11 @@ const prompt = require('prompt-sync')();
                 Confiança : ${valores.confianca}/100`);
     }
 
-    function meusPremios(){
-    for (let i = 0 ; i < listaPremios.length; i++){
-    console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
-    }
-    }
+    // function meusPremios(){
+    //     for (let i = 0 ; i < listaPremios.length; i++){
+    //     console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
+    //     }
+    // }
 
     function inicioGame(){
     console.log('--------------------------------------------------------------');
@@ -344,10 +343,11 @@ SEJAM BEM VINDOS A GRANDE CÊRIMONIA DE PREMIAÇÃO! HOJE VAMOS VER
         NEYMAR VOCÊ GANHOU OS SEGUINTES PRÊMIOS:
             
             PRECIONE ENTER PARA VISUALIZAR.`)
-            
-            meusPremios()
-    
-        }
+
+        prompt()
+        // meusPremios()
+        
+    }
 
     function setimaFase(){
         console.log('\n--------------------------------------------------------------');    
@@ -487,6 +487,10 @@ while (continuar2 == 'S'){
         console.clear();
 
         sextaFase()
+        for (let i = 0 ; i < listaPremios.length; i++){
+        console.log(`${i+1}º PREMIO - ${listaPremios[i]}`);
+        }
+        prompt()
         console.log('\n--------------------------------------------------------------');
         console.log('\n<-            PRECIONE ENTER PARA CONTINUAR                ->');
         prompt()
