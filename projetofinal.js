@@ -152,6 +152,7 @@ while (continuar2 = 'S'){
         if(primeiraEscolha1 == 'A'){
         console.log('\n         ÓTIMA ESCOLHA! DEPOIS DE UMA GRANDE VITÓRIA\n         A SELEÇÃO BRASILEIRA MERECE UM DESCANSO.');
         valores.energia += 10 ; valores.tecnica += 10 ; valores.confianca += 10
+        console.log('[+10xp energia / +10xp tecnica / +10xp confianca]')
         } else if (primeiraEscolha1 == 'B'){
         console.log(`\n[A] TREINAR NA ACADEMIA\n[B] TREINAR COM BOLA\n`);
             let primeiraEscolha2 = prompt('QUAL SUA ESCOLHA: ').toUpperCase()
@@ -163,9 +164,11 @@ while (continuar2 = 'S'){
             if (primeiraEscolha2 == 'A' ){
             console.log('\n   BOA ESCOLHA! A SELEÇÃO FARÁ UM TREINO REGENERATIVO.');
             valores.energia -=10 ;  valores.tecnica += 10 ; valores.confianca += 10
+            console.log('[-10xp energia / +10xp tecnica / +10xp confianca]')
             }else{
             console.log('\n   NÃO FOI UMA BOA ESCOLHA! A SELEÇÃO MERECIA UM DESCANÇO.');
             valores.energia -=20 ; valores.tecnica += 10 ; valores.confianca += 10
+            console.log(' -20xp energia / +10xp tecnica / +10xp confianca]')
             }
         }
 
@@ -210,13 +213,15 @@ COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES:\n`)
             if(segundaEscolha2 = 'A' && valores.energia <=31){
             console.log('\nNÃO FOI UMA BOA ESCOLHA, JÁ TREINAMOS ONTEM!');
             valores.energia -= 31 ;  valores.tecnica += 10 
+            console.log('[-30xp energia / +10xp tecnica]')
             meufinal = final1()
             }else if (segundaEscolha2 = 'A'){
             console.log('\nBOA ESCOLHA. VAMOS FAZER UM TREINO MUSCULAR E ATIVIDADE COM BOLA.');
-            valores.tecnica += 10 ; 
+            console.log('[+10xp tecnica ]'); 
             }else if (segundaEscolha2 = 'B'){
             console.log('\nÓTIMA ESCOLHA. VAMOS FAZER UM TREINO LEVE ANTES DO JOGO.');
             valores.tecnica += 10 ; 
+            console.log('[+10xp tecnica]');
             }
         }else if (segundaEscolha1 = 'B'){
             console.log(`\n[A] FAZER AQUECIMENTO/ALONGAMENTO\n[B] FAZER AQUECIMMENTO/ALONGAMENTO E PRÉ-ELEÇÃO.\n`);
@@ -227,11 +232,13 @@ COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES:\n`)
             segundaEscolha3 = prompt('QUAL SUA ESCOLHA: ').toUpperCase()
             }
             if (segundaEscolha3 = 'A'){
-            console.log('\n          BOA ESCOLHA. VAMOS AQUECER E IR PRO JOGO!');
+            console.log('\nBOA ESCOLHA. VAMOS AQUECER E IR PRO JOGO!');
             valores.tecnica += 10 ; 
+            console.log('[+10xp tecnica]');
             }else{
             console.log('\nÓTIMA ESCOLHA! DEPOIS DO AQUECIMENTO, UMA PRÉ-ELEÇÃO E VAMOS PRO JOGO!');
             valores.tecnica += 10 ; 
+            console.log('[+10xp tecnica]');
             }
         }
 
@@ -273,9 +280,11 @@ COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES: `)
         if (terceiraEscolha1 == 'A'){
             console.log('\nÓTIMA ESCOLHA! DEPOIS DE UMA GRANDE VITÓRIA A SELEÇÃO \nBRASILEIRA MERECE UM DESCANSO.');
             valores.energia += 10; valores.tecnica += 10 ; valores.confianca += 10
+            console.log('[+10xp energia / +10xp tecnica / +10xp confianca]')
         }else if(terceiraEscolha1 == 'B'){
             console.log('\nBOA ESCOLHA! VAMOS FAZER UM TREINO REGENERATIVO.');
             valores.energia += 5; valores.tecnica += 10 ; valores.confianca += 10
+            console.log('[+5xp energia / +10xp tecnica / +10xp confianca]')
         }else if(terceiraEscolha1 == 'C'){
             console.log('\n[A] BEBER GATORADE E COMEMORAR NO VESTIÁRIO \n[B] BEBER ALCOOL ATÉ TARDE NO HOTEL COM OS JOGADORES\n');
             let terceiraEscolha2 = prompt('QUAL SUA ESCOLHA: ').toUpperCase()
@@ -286,9 +295,11 @@ COMO CAPITÃO, DEVE AUXILIAR O TÉCNICO, NAS PROXIMAS DECISÕES: `)
             }if (terceiraEscolha2 == 'A'){
             console.log('\nBOA ESCOLHA! NÃO EXAGERE, TEMOS A FINAL AMANHÃ.');
             valores.energia -= 20; valores.tecnica += 0 ; valores.confianca += 10
+            console.log('[-20xp energia / +10xp confianca]')
             }else if (terceiraEscolha2 == 'B'){
             console.log('\nPÉSSIMA ESCOLHA! COMO VAMOS JOGAR AMANHÃ BÊBADOS?');
             valores.energia += 10; valores.tecnica -= 100 ; valores.confianca += 10
+            console.log('[+10xp energia / -100xp tecnica / +10xp confianca]')
             }
         }
 
@@ -329,11 +340,14 @@ A SELEÇÃO FRANCESA DE FUTEBOL! E VOCE COMO CAPITÃO DA EQUIPE,
         if (quartaEscolha1 == 'A'){
         console.log('\nTREINAMENTO TRANQUILO, PARA IRMOS COM TUDO!\n');
         valores.energia += 10; valores.tecnica += 10 ; valores.confianca += 10
-        console.log('ALÉM DISSO RECEBEMOS UMA VISITA DA RED BULL EM NOSSO VESTIARIO,\nGANHAMOS UM UP A MAIS PARA ESSA FINAL!');
+        console.log('[+10xp energia / +10xp tecnica / +10xp confianca]')
+        console.log('ALÉM DISSO RECEBEMOS UMA VISITA DA "RED BULL" EM NOSSO VESTIARIO,\nGANHAMOS UM xpUP A MAIS PARA ESSA FINAL!');
+        console.log('[+10xp energia / +10xp tecnica / +10xp confianca]')
         statusUpFinal();meuStatus()
         }else if(quartaEscolha1 == 'B'){
         console.log('\nTREINAMENTO FORTE, PARA IRMOS COM TUDO PRA ESSA FINAL');
         valores.energia -= 10; valores.tecnica += 10 ; 
+        console.log('[-10xp energia / +10xp tecnica / +10xp confianca]')
 eventoZero()
         }
 
@@ -358,7 +372,11 @@ eventoZero()
 É CAAAAAAAAAAAAAAMPEÃOOOOOOOOOOOO!!!!!! A SELEÇÃO BRASILEIRA
 É CAMPEÃ DO MUNDO! BRASIL 2 x 0 FRANÇA, COM GOL DE NEYMAR!
 O BRASIL É HEXA CAMPEÃO MUNDIAL E VOCE COMO CAPITÃO DA
-   EQUIPE, ACABA DE LEVANTAR A TAÇA DA COMPETIÇÃO!!:\n`)
+   EQUIPE, ACABA DE LEVANTAR A TAÇA DA COMPETIÇÃO!!
+
+A RED BULL MANDOU ENERGETICOS AO VESTIÁRIO PARA A COMEMORAÇÃO:
+ [energia = 100xp / tecnica = 100xp / confiança = 100xp]'
+          Os status do personagem atingiram 100%\n`)
 
         premios()
         let premio3 = ' - MELHOR JOGADOR DA COPA DO MUNDO'
